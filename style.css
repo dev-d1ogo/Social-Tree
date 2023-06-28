@@ -28,7 +28,7 @@ body{
     */
 
     background: var(--bg) no-repeat top center/cover;
-    height: 100vw;
+    height: 100vh;
 
 }
 /*======================================================================================================================================================================================================
@@ -107,13 +107,20 @@ body{
 
     */
     top: 50%;
-    right: 0;
+    right: 50%;
     transform: translateY(-50%);
+
+    animation: slide-out 0.2s;
     
 }
 
 .switch,.switch button:hover{
     cursor: pointer;
+    
+}
+
+.switch button:hover{
+    outline: 9px solid var(--high-light-color)
 }
 
 .switch span{
@@ -127,8 +134,9 @@ body{
 }
 
 .lightmode button{
-   left: 0;
-   right: initial;
+   animation: slide-in 0.2s forwards;
+
+   /*forwards =  aplica as mudanças da animação para o css, ou seja onde ele terminou ele fica*/
    
 }
 /*======================================================================================================================================================================================================
@@ -181,7 +189,8 @@ body{
 
 .buttonList a:hover{
     background: var(--surface-color-hover);
-    border: 1.5px solid var(--text-color)
+    border: 1.5px solid var(--text-color);
+    
 }
 
 /*======================================================================================================================================================================================================
@@ -251,3 +260,24 @@ footer{
       --bg-url: url(./assets/bg-desktop-light.jpg);
     }
   }
+
+/* animation with css */
+
+@keyframes slide-in{
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-out {
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+}
+  
