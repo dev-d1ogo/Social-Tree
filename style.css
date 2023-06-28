@@ -28,6 +28,7 @@ body{
     */
 
     background: var(--bg) no-repeat top center/cover;
+    height: 100vw;
 
 }
 /*======================================================================================================================================================================================================
@@ -238,3 +239,15 @@ footer{
     --high-light-color: rgba(0,0,0,0.1);
     --switch-image: url(./assets/sun.svg);
 }
+
+/* media queries */
+
+@media (min-width: 700px) {
+    :root {
+      --bg-url: url(./assets/bg-desktop.jpg);
+    }
+  
+    .light {
+      --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+  }
