@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*======================================================================================================================================================================================================
+        Body CSS
+======================================================================================================================================================================================================*/
+
+body *{
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+body{
+    background-image: var(--bg);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* cobrir todo espaço visivel em dispositivos menores */
+    
+    background-size: cover; 
+
+    /*Short-hand background
+
+    background: color image repeat position/size
+    
+    */
+
+    background: var(--bg) no-repeat top center/cover;
+
+}
+/*======================================================================================================================================================================================================
+        Main Container CSS
+======================================================================================================================================================================================================*/
+.container{
+
+    color: var(--text-color);
+    width: 360px;
+    height:712px ;
+    padding: 0 24px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 56px;
+}
+
+/*======================================================================================================================================================================================================
+        AvatarList CSS
+======================================================================================================================================================================================================*/
+
+.profile{
+    text-align: center;
+    padding: 24px;
+
+
+}
+
+.profilePhoto{
+    width: 112px;
+    display: inline;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+
+    /*  
+    Display inline nao permite o margin auto, entretanto o display block sim
+    
+    Então no inline usamos o text-align center no elemento pai
+    */
+}
+
+/*======================================================================================================================================================================================================
+        Nickname CSS
+======================================================================================================================================================================================================*/
+
+.nickname{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 8px;
+}
+/*======================================================================================================================================================================================================
+       Switch CSS
+======================================================================================================================================================================================================*/
+.switch{
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+.switch button{
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: 0;
+    border-radius: 50%;
+    background-image: var(--switch-image) ;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    /*
+    Posicionando um elemento ao meio do position relative
+         transform: translateY(-50%); -> faz com que metade do elemento fique pra cima da box
+         top: 50% -> faz com que os elementos se alinhem
+
+    */
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    
+}
+
+.switch,.switch button:hover{
+    cursor: pointer;
+}
+
+.switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    
+}
+
+.lightmode button{
+   left: 0;
+   right: initial;
+   
+}
+/*======================================================================================================================================================================================================
+        Button List CSS
+======================================================================================================================================================================================================*/
+
+
+.buttonList{
+    list-style: none;
+    margin: 0 24px;
+    display: flex;
+    flex-direction: column;
+    /*
+    gap: entre cada elemento vamos ter um 
+    */
+    gap: 16px;
+    padding: 24px 0;
+}
+
+.buttonList a{
+    text-decoration: none;
+    font-weight: 500;
+    
+    display: flex;
+    
+    /*
+        align-items: Organiza os elementos do display flex na vertical (eixo x)
+        justify-content: Organiza os elementos do display flex na horizontal (eixo y)
+    
+    */
+    align-items: center; 
+    justify-content: center;
+
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    
+    padding: 16px 24px;
+
+    /*
+    Usamos o -webkit para alguns browsers aceitarem determinada modificação
+    backdrop-filter: aplica um "borrao" no elemento
+    
+    */
+    -webkit-backdrop-filter: blur(4px);
+
+    transition: background 0.2s;
+    
+}
+
+.buttonList a:hover{
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color)
+}
+
+/*======================================================================================================================================================================================================
+        Social links
+======================================================================================================================================================================================================*/
+
+.social-links{
+    display: flex;
+    padding: 24px 0;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.social-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    
+    transition: background 0.2s;
+    /* caso o border-radius fique no hover ele vai de um quadrado pra um circulo, deixando a transição estranha*/
+    border-radius: 56px;
+}
+
+.social-links a:hover{
+    background: var(--high-light-color);
+    border-radius: 56px;
+}
+
+footer{
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+/*======================================================================================================================================================================================================
+        Light Mode CSS
+======================================================================================================================================================================================================*/
+:root{
+    --text-color: white;
+    --bg: url(assets/bg-desktop.jpg);
+    --border-color: rgba(255,255,255,0.5);
+    --surface-color: rgba(255,255,255,0.05);
+    --surface-color-hover: rgba(0,0,0,0.02);
+    --high-light-color: rgba(255,255,255,0.2);
+    --switch-image: url(./assets/moon-stars.svg);
+}
+
+.lightmode {
+    --text-color: black;
+    --bg: url(assets/bg-desktop-light.jpg);
+    --border-color: rgba(0,0,0,0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(255,255,255,0.2);
+    --high-light-color: rgba(0,0,0,0.1);
+    --switch-image: url(./assets/sun.svg);
+}
