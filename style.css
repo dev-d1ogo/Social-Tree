@@ -36,7 +36,9 @@ body{
 .container{
 
     color: var(--text-color);
-    width: 360px;
+    width: 100%;
+    /* Define um tamanho maximo de largura para o container, de modo que ele nao cresça "infinitamente"*/
+    max-width: 588px;
     height:712px ;
     padding: 0 24px;
     margin: 0 auto;
